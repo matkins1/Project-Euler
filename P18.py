@@ -45,7 +45,22 @@ def max_path_sum():
 	[91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
 	[63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
 	[4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]]
-    
+	
+	# iterate over rows of triangle
+	for i in range(1, len(triangle)): 
+		
+		# iterate over items of reach row of triangle
+		for j in range(0, len(triangle[i-1])):    
+			
+			# replace each element of "triangle" below first row with the max sum of element and above adjacent elements
+			triangle[i][j] = max(triangle[i-1][j-1],triangle[i-1][j]) + triangle[i][j]
+					
+		# appends sum for final element in row i of triangle - had to add this outside "j" iteration due to out of range list index
+		triangle[i][len(triangle[i-1])] = triangle[i-1][len(triangle[i-1])-1] + triangle[i][len(triangle[i-1])]
+	
+	# returns maximum sum in final row of "triangle" matrix
+	return max(triangle[len(triangle)-1])
+	
     # stop timer and print total elapsed time
     stop = timeit.default_timer()
     print "Total time:", stop - start 
