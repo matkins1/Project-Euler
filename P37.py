@@ -73,4 +73,8 @@ def is_Prime(n):
         if n % i == 0:
             return False
         i = i+2
+<<<<<<< HEAD
     return True 
+=======
+    return True 
+>>>>>>> origin/master
