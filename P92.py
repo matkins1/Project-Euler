@@ -21,17 +21,23 @@ def number_chain():
 	
 	count = 0 # initialize count variable
 	
-	for i in range(2,999): # check starting numbers below ten million
-		
+	for i in range(2,9): # check starting numbers below ten million
+	
 		k = 0
+
+		while i != 1 and i != 89:
 		
-		while k != 1 and k != 89:
-		
-			for j in range(0,len(str(i))-1):
+			for j in range(0,len(str(i))):
 			
+				print i, "i", j, "j"
+				
 				k += int(str(i)[j])**2
 
-		if k == 89:
+				i = k
+			
+			k = 0	
+				
+		if i == 89:
 
 			count += 1
 	
